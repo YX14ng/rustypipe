@@ -292,6 +292,8 @@ pub(crate) struct MusicThumbnailRenderer {
 #[serde(rename_all = "camelCase")]
 pub(crate) struct PlaylistItemData {
     pub video_id: String,
+    #[serde(default)]
+    pub playlist_set_video_id: Option<String>,
 }
 
 #[serde_as]
@@ -587,6 +589,10 @@ impl MusicListMapper {
             .thumbnails
             .first();
 
+        let playlist_set_video_id = item
+            .playlist_item_data
+            .as_ref()
+            .and_then(|d| d.playlist_set_video_id.clone());
         let music_page = item
             .navigation_endpoint
             .and_then(NavigationEndpoint::music_page)
@@ -798,6 +804,7 @@ impl MusicListMapper {
                     track_nr,
                     by_va,
                     unavailable: item.music_item_renderer_display_policy == DisplayPolicy::GreyOut,
+                    playlist_set_video_id,
                 }));
                 Ok(Some(MusicItemType::Track))
             }
@@ -979,6 +986,7 @@ impl MusicListMapper {
                         track_nr: None,
                         by_va,
                         unavailable: false,
+                        playlist_set_video_id: None,
                     }));
                     Ok(Some(MusicItemType::Track))
                 }
@@ -1144,6 +1152,7 @@ impl MusicListMapper {
                             track_nr: None,
                             by_va,
                             unavailable: false,
+                            playlist_set_video_id: None,
                         }));
                     } else {
                         let (artists, by_va) = map_artists(subtitle_p2);
@@ -1182,6 +1191,7 @@ impl MusicListMapper {
                             track_nr: None,
                             by_va,
                             unavailable: false,
+                            playlist_set_video_id: None,
                         }));
                     }
                     Some(MusicItemType::Track)
@@ -1440,6 +1450,7 @@ pub(crate) fn map_queue_item(item: QueueMusicItem, lang: Language) -> MapResult<
             track_nr: None,
             by_va,
             unavailable: false,
+            playlist_set_video_id: None,
         },
         warnings,
     }

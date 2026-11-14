@@ -62,6 +62,7 @@ MusicAlbum(
       track_nr: Some(1),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("9AFC542286DBCAC4"),
     ),
     TrackItem(
       id: "rREEBXp0y9s",
@@ -84,6 +85,7 @@ MusicAlbum(
       track_nr: Some(2),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("20BB2D1CA162D962"),
     ),
     TrackItem(
       id: "zvU5Y8Q19hU",
@@ -106,6 +108,7 @@ MusicAlbum(
       track_nr: Some(3),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("2CE4C7EE0CFE152E"),
     ),
     TrackItem(
       id: "ARKLrzzTQA0",
@@ -128,6 +131,7 @@ MusicAlbum(
       track_nr: Some(4),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("8BBED1BC40A32F7A"),
     ),
     TrackItem(
       id: "tstLgN8A_Ng",
@@ -150,6 +154,7 @@ MusicAlbum(
       track_nr: Some(5),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("369EB5BEE8D186C8"),
     ),
     TrackItem(
       id: "k2DjgQOY3Ts",
@@ -172,6 +177,7 @@ MusicAlbum(
       track_nr: Some(6),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("4434C10F9B4FD9B4"),
     ),
     TrackItem(
       id: "azHwhecxEsI",
@@ -194,6 +200,7 @@ MusicAlbum(
       track_nr: Some(7),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("F1F058172A1B5400"),
     ),
     TrackItem(
       id: "_FcsdYIQ2co",
@@ -216,6 +223,7 @@ MusicAlbum(
       track_nr: Some(8),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("474BCE1A59096EF2"),
     ),
     TrackItem(
       id: "27bOWEbshyE",
@@ -238,6 +246,7 @@ MusicAlbum(
       track_nr: Some(9),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("2BC5671ED76381A4"),
     ),
     TrackItem(
       id: "riD_3oZwt8w",
@@ -260,6 +269,7 @@ MusicAlbum(
       track_nr: Some(10),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("49698256FA985D14"),
     ),
     TrackItem(
       id: "8GNvjF3no9s",
@@ -282,6 +292,7 @@ MusicAlbum(
       track_nr: Some(11),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("BAD8B6E8010B3B4A"),
     ),
     TrackItem(
       id: "YHMFzf1uN2U",
@@ -304,6 +315,7 @@ MusicAlbum(
       track_nr: Some(12),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("3A601B1DA9C46E47"),
     ),
     TrackItem(
       id: "jvV-z5F3oAo",
@@ -326,6 +338,7 @@ MusicAlbum(
       track_nr: Some(13),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("7A7666353B17751B"),
     ),
     TrackItem(
       id: "u8_9cxlrh8k",
@@ -348,6 +361,7 @@ MusicAlbum(
       track_nr: Some(14),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("636EAE88B1315B6C"),
     ),
     TrackItem(
       id: "gSvKcvM1Wk0",
@@ -370,6 +384,7 @@ MusicAlbum(
       track_nr: Some(15),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("7603080FD4639AF7"),
     ),
     TrackItem(
       id: "wQHgKRJ0pDQ",
@@ -392,6 +407,7 @@ MusicAlbum(
       track_nr: Some(16),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("8B596034973CAC92"),
     ),
     TrackItem(
       id: "Ckz5i6-hzf0",
@@ -414,6 +430,7 @@ MusicAlbum(
       track_nr: Some(17),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("3A19D9ED082A22B6"),
     ),
     TrackItem(
       id: "y5zuUgyFqrc",
@@ -436,6 +453,7 @@ MusicAlbum(
       track_nr: Some(18),
       by_va: false,
       unavailable: false,
+      playlist_set_video_id: Some("61CF73F0CE2B3822"),
     ),
   ],
   variants: [

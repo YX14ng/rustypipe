@@ -1051,6 +1051,11 @@ pub struct TrackItem {
     pub by_va: bool,
     /// Is the track unavailable on YouTube Music?
     pub unavailable: bool,
+    /// ID of this entry in a playlist (`setVideoId`), which removing or moving it needs
+    ///
+    /// [`None`] outside playlists.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub playlist_set_video_id: Option<String>,
 }
 
 /// YouTube Music artist list item

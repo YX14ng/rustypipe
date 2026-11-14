@@ -60,6 +60,7 @@ MusicPlaylist(
         track_nr: None,
         by_va: false,
         unavailable: false,
+        playlist_set_video_id: Some("6263132B04ADB7BE"),
       ),
     ],
     ctoken: None,
