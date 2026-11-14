@@ -44,11 +44,36 @@ pub(crate) struct PlSectionList {
     pub section_list_renderer: MusicContentsRenderer<ItemSection>,
 }
 
-#[derive(Debug, Deserialize)]
-#[serde(rename_all = "camelCase")]
+#[derive(Debug)]
 pub(crate) struct Header {
-    #[serde(alias = "musicResponsiveHeaderRenderer")]
     pub music_detail_header_renderer: HeaderRenderer,
+}
+
+/// The signed-in user's own playlists wrap their header in a
+/// `musicEditablePlaylistDetailHeaderRenderer`, which holds the usual header under `header`.
+/// Without reading it, those playlists were mapped as albums and failed.
+impl<'de> Deserialize<'de> for Header {
+    fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        #[derive(Deserialize)]
+        #[serde(rename_all = "camelCase")]
+        enum Wrapped {
+            #[serde(alias = "musicResponsiveHeaderRenderer")]
+            MusicDetailHeaderRenderer(HeaderRenderer),
+            MusicEditablePlaylistDetailHeaderRenderer(Editable),
+        }
+
+        #[derive(Deserialize)]
+        struct Editable {
+            header: Box<Header>,
+        }
+
+        Ok(match Wrapped::deserialize(deserializer)? {
+            Wrapped::MusicDetailHeaderRenderer(renderer) => Header {
+                music_detail_header_renderer: renderer,
+            },
+            Wrapped::MusicEditablePlaylistDetailHeaderRenderer(editable) => *editable.header,
+        })
+    }
 }
 
 #[serde_as]
