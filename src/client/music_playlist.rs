@@ -241,7 +241,8 @@ impl MapResponse<MusicPlaylist> for response::MusicPlaylist {
                     .collect::<Vec<_>>();
                 parts
                     .get(usize::from(parts.len() > 2))
-                    .and_then(|txt| util::parse_numeric::<u64>(&txt[0]).ok())
+                    .and_then(|txt| txt.first())
+                    .and_then(|txt| util::parse_numeric::<u64>(txt).ok())
             })
         } else {
             Some(map_res.c.len() as u64)
