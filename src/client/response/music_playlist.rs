@@ -105,8 +105,10 @@ pub(crate) struct HeaderRenderer {
     /// `"64 songs", " • ", "3 hours, 40 minutes"`
     ///
     /// `"1B views", " • ", "200 songs", " • ", "6+ hours"`
+    ///
+    /// Empty (`{}`) on mixes made for the user, like "My Supermix".
     #[serde(default)]
-    #[serde_as(as = "Text")]
+    #[serde_as(as = "DefaultOnError<Text>")]
     pub second_subtitle: Vec<String>,
     /// Channel (newer data model)
     #[serde(default)]
@@ -185,4 +187,27 @@ pub(crate) struct AvatarStackViewModel {
 #[serde(rename_all = "camelCase")]
 pub(crate) struct AvatarStackRendererContext {
     pub command_context: Option<OnTapWrap>,
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn mix_header_with_an_empty_second_subtitle() {
+        let header: Header = serde_json::from_value(serde_json::json!({
+            "musicResponsiveHeaderRenderer": {
+                "title": { "runs": [{ "text": "New Release Mix" }] },
+                "subtitle": { "runs": [{ "text": "Mix" }, { "text": " • " }, { "text": "2026" }] },
+                "secondSubtitle": {},
+                "facepile": { "avatarStackViewModel": { "text": { "content": "YouTube Music" } } },
+            }
+        }))
+        .unwrap();
+        assert_eq!(header.music_detail_header_renderer.title, "New Release Mix");
+        assert!(header
+            .music_detail_header_renderer
+            .second_subtitle
+            .is_empty());
+    }
 }
