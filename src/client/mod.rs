@@ -1583,6 +1583,12 @@ impl RustyPipe {
         }
     }
 
+    /// Get the `Cookie` header of the user authentication cookie, to hand the session to
+    /// another program (like yt-dlp). `None` when no cookie is set.
+    pub fn user_auth_cookie_header(&self) -> Option<String> {
+        self.user_auth_cookie().ok().map(|cookie| cookie.cookie)
+    }
+
     /// Get a copy of the authentication cookie from the cache
     fn user_auth_cookie(&self) -> Result<AuthCookie, Error> {
         self.inner
