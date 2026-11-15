@@ -49,6 +49,8 @@ pub(crate) struct MusicShelf {
     pub title: Option<String>,
     /// Playlist ID (only for playlists)
     pub playlist_id: Option<String>,
+    /// Missing when the shelf is empty, like an empty "Episodes for later" playlist
+    #[serde(default)]
     pub contents: MapResult<Vec<MusicResponseItem>>,
     /// Continuation token for fetching more (>100) playlist items
     #[serde(default)]
@@ -1464,6 +1466,17 @@ mod tests {
 
     use super::*;
     use crate::util::tests::TESTFILES;
+
+    #[test]
+    fn empty_playlist_shelf() {
+        let shelf: MusicShelf = serde_json::from_value(serde_json::json!({
+            "playlistId": "SE",
+            "collapsedItemCount": 0,
+            "contentsReorderable": true,
+        }))
+        .unwrap();
+        assert!(shelf.contents.c.is_empty());
+    }
 
     #[test]
     fn map_album_type_samples() {
