@@ -3,6 +3,7 @@
 pub(crate) mod response;
 
 mod channel;
+mod cookie_rotation;
 mod music_artist;
 mod music_charts;
 mod music_details;
